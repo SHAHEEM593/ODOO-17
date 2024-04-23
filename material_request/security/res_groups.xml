@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    category-->
+    <record id="material_requests" model="ir.module.category">
+        <field name="name">Material Request</field>
+        <field name="description">User access level for Material Request</field>
+        <field name="sequence">20</field>
+    </record>
+<!--    user-->
+    <record id="material_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="material_requests"/>
+    </record>
+<!--    manager-->
+    <record id="material_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="material_requests"/>
+    </record>
+<!--    head-->
+     <record id="material_head" model="res.groups">
+        <field name="name">Head</field>
+        <field name="category_id" ref="material_requests"/>
+    </record>
+</odoo>

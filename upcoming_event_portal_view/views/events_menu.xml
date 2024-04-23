@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="university_action" model="ir.actions.act_window">
+        <field name="name">University</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">university.events</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="events_action" model="ir.actions.act_window">
+        <field name="name">Events</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">events</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="event_menus" name="Event">
+        <menuitem id="upcoming_events" action="university_action" name="University"/>
+        <menuitem id="events" action="events_action" name="Events" />
+    </menuitem>
+</odoo>
+

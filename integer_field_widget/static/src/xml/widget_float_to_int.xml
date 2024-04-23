@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+   <t t-name="FieldConvert" owl="1">
+       <input type="text"  t-ref="convert_to_inte"
+              t-on-change="floatToInt" class="o-autocomplete--input o_input"/>
+   </t>
+</templates>

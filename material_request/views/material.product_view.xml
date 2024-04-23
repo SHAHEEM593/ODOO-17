@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    material product view-->
+    <record id="material_product" model="ir.ui.view">
+        <field name="name">Products</field>
+        <field name="model">material.product</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="product_material_id"/>
+                        <field name="products_id"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="product_tree_view" model="ir.ui.view">
+        <field name="name">product.tree.view</field>
+        <field name="model">material.product</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="products_id"/>
+
+            </tree>
+        </field>
+    </record>
+</odoo>

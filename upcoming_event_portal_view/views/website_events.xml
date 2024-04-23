@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="portal_my_home_invoice_events" name="Show Events" inherit_id="portal.portal_my_home"
+              customize_show="True" priority="30">
+        <xpath expr="//div[hasclass('o_portal_my_home')]" position="inside">
+            <div class="wrapper col-12 d-flex flex-wrap justify-content-between align-items-center">
+                <h3>Events</h3>
+            </div>
+            <div class="o_portal_index_card col-md-6 order-2">
+                <a href="/upcoming_events"
+                   class="d-flex justify-content-start gap-2 gap-md-3 align-items-center py-3 pe-2 px-md-3 h-100 rounded text-decoration-none text-reset text-bg-light">
+                    <div class="o_portal_icon align-self-start">
+                        <img src="/portal/static/src/img/portal-addresses.svg"/>
+                    </div>
+                    <div>
+                        <h5 class="mt-0 mb-1 ">
+                            <span> Events</span>
+                        </h5>
+                        <p class="m-0 text-600">
+                            Upcoming Events
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </xpath>
+    </template>
+</odoo>

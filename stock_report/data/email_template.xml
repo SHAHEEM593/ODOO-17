@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="email_template_stock_report" model="mail.template">
+        <field name="name">Stock Reports: Send by mail</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="subject">Stock Report </field>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                Dear Manager,
+                <h3>
+                    <p >
+                        <br/>
+                        <br/>
+                        Here is the Stock Reports ;
+                    </p>
+                    <br/>
+                    Regards,
+                    <br/>
+                </h3>
+                <t t-out="object.company_id.name"/>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    sale button  add-->
+    <record id="sale_import_button" model="ir.ui.view">
+        <field name="name">sale.import.button</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_cancel']" position="after">
+                <button name="import_action" string="Import" type="object"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

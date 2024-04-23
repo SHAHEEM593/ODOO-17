@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template>
+    <t t-name="website_session_snippet.product_temp">
+        <div>
+            <t t-foreach="res" t-as="data" t-key="data.id">
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list"
+                   href="#list-home" role="tav" aria-controls="list-home">
+                    <t t-out="data.name"/>:<t t-out="data.list_price"/>
+                </a>
+            </t>
+        </div>
+    </t>
+
+</template>

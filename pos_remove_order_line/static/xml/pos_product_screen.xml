@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension">
+         <xpath expr="//div[hasclass('pads')]" position="before">
+             <div class="d-flex">
+                 <button class="btn-light button btn d-flex flex-column flex-fill align-items-center justify-content-center fw-bolder btn-lg" t-on-click="clearAllCart">Clear Cart</button></div>
+         </xpath>
+    </t>
+</templates>

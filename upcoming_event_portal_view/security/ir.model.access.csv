@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_university_events,access_university_events,model_university_events,base.group_user,1,1,1,1
+access_events,access_events,model_events,base.group_user,1,1,1,1
+access_event,access_event,model_events,base.group_portal,1,0,0,0

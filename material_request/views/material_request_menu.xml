@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--     employee action-->
+      <record id="employee_action" model="ir.actions.act_window">
+        <field name="name">Request</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">material.request.employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+<!--    product-->
+    <record id="product_action" model="ir.actions.act_window">
+        <field name="name">Product</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+<!--    main menu-->
+        <menuitem id="material_request" name="Material Request"/>
+<!--    employee menu-->
+    <menuitem id="employees" name="Employees" action="employee_action" parent="material_request" />
+<!--    product menu-->
+    <menuitem id="product" name="Product" action="product_action" parent="material_request" />
+
+</odoo>

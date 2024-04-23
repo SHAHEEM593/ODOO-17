@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="upcoming_events_eve">
+        <t t-call="website.layout">
+            <div id="events_tree_request_form">
+                <div class="container">
+                    <h1>Events</h1>
+                    <div class="row">
+                        <table class="o_list_table position-relative table table-sm o_list_table_ungrouped table-striped o_portal_my_doc_table mb-0">
+                            <thead>
+                                <tr class="active">
+                                    <th>Name</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Description</th>
+                                    <th>University</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="events" t-as="eve">
+                                    <tr>
+
+                                        <td>
+                                            <t t-if="user">
+                                                <a
+                                                        t-attf-href="#{host}/web#id=#{eve.id}&amp;cids=1&amp;menu_id=#{menu_id}&amp;action=#{action}&amp;model=events&amp;view_type=form">
+                                                    <t t-esc="eve.name"/>
+                                                </a>
+                                            </t>
+                                            <t t-else="" t-esc="eve.name"/>
+
+                                        </td>
+                                        <td>
+                                            <t t-esc="eve.start_date"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="eve.end_date"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="eve.description"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="eve.university_id.name"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

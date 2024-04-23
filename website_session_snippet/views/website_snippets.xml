@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="feature_snippets">
+        <section class="oe-stuructre container">
+            <div class="card col-3 m-auto" style="margin-top:30px">
+                <div class="row">
+                    <h1 class="h1">Sessions</h1>
+                </div>
+            </div>
+        </section>
+        <section class="card col-3 m-auto " style="margin-top:30px">
+            <div class="row">
+                <img src="website_session_snippet/static/src/img/settings-icon.svg "/>
+            </div>
+        </section>
+    </template>
+
+
+      <template id="dynamic_snippets" name="Dynamic">
+        <section class="oe_structure container prod_snip">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center py-5">
+                        <h1 class="h1">Total Products</h1>
+                        <div id="prod_snippets">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+
+    <template id="inner_snippet">
+        <div class="s_text_highlight">
+            <h1 class="h1">inner</h1>
+        </div>
+    </template>
+    <template id="external_snippets" inherit_id="website.snippets" priority="8">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
+            <t t-snippet="website_session_snippet.feature_snippets"
+               t-thumbnail="website_session_snippet/static/src/img/settings-icon.svg"/>
+        </xpath>
+    </template>
+    <template id="external_snippets_feature" inherit_id="website.snippets" priority="8">
+        <xpath expr="//div[@id='snippet_feature']/div[hasclass('o_panel_body')]" position="inside">
+            <t t-snippet="website_session_snippet.feature_snippets"
+               t-thumbnail="website_session_snippet/static/src/img/settings-icon.svg"/>
+        </xpath>
+    </template>
+    <template id="external_snippets_inner" inherit_id="website.snippets" priority="8">
+        <xpath expr="//div[@id='snippet_content']/div[hasclass('o_panel_body')]" position="inside">
+            <t t-snippet="website_session_snippet.inner_snippet"
+               t-thumbnail="website_session_snippet/static/src/img/settings-icon.svg"/>
+        </xpath>
+    </template>
+        <template id="external_snippets_dynamic" inherit_id="website.snippets" priority="8">
+        <xpath expr="//div[@id='snippet_effect']/div[hasclass('o_panel_body')]" position="inside">
+            <t t-snippet="website_session_snippet.dynamic_snippets"
+               t-thumbnail="website_session_snippet/static/src/img/settings-icon.svg"/>
+        </xpath>
+    </template>
+</odoo>

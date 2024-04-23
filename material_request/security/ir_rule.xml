@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+        <!--manager record rule-->
+        <record id="manager_material_rule" model="ir.rule">
+            <field name="name">Manager rule for material request</field>
+            <field ref="model_material_request_employee" name="model_id"/>
+            <field name="domain_force">[('status','in',('waiting_for_approval','first_approved'))]</field>
+            <field name="groups" eval="[(4, ref('material_request.material_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="active" eval="True"/>
+        </record>
+     <!--head record rule-->
+        <record id="head_material_rule" model="ir.rule">
+            <field name="name">Manager rule for material request</field>
+            <field ref="model_material_request_employee" name="model_id"/>
+            <field name="domain_force">[('status','in',('first_approved','approved_head'))]</field>
+            <field name="groups" eval="[(4, ref('material_request.material_head'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="active" eval="True"/>
+        </record>
+
+</odoo>

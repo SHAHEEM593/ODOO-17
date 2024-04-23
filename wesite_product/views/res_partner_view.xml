@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_for_website" model="ir.ui.view">
+        <field name="name">Products</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page name="Product" string="Products">
+                    <group>
+                        <field name="web_product_ids" widget="many2many_tags" />
+                        <field string="Category" name="web_category_id" widget="many2many_tags" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

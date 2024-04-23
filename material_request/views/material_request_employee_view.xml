@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--    subject-->
+    <record id="material_request_employee" model="ir.ui.view">
+        <field name="name">employee.form.view</field>
+        <field name="model">material.request.employee</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!--                    user-->
+                    <field name="status" widget="statusbar" options="{'clickable':0}"
+                           statusbar_visible="draft,waiting_for_approval,approved_head" groups="material_request.material_user"/>
+                    <button name="submit_to_manager" string="Submit to manager" type="object" class="oe_highlight"
+                            groups="material_request.material_user"
+                            invisible="status in ['waiting_for_approval','approved_head']"/>
+                    <!--                    manager-->
+                    <field name="status" widget="statusbar" options="{'clickable':0}"
+                           groups="material_request.material_manager"
+                           statusbar_visible="waiting_for_approval,first_approved"/>
+
+                    <button name="manager_approve" string="Approve" type="object" class="oe_highlight"
+                            groups="material_request.material_manager"
+                            invisible="status == 'first_approved'"/>
+                    <!--                    head-->
+                    <field name="status" widget="statusbar" options="{'clickable':0}"
+                           groups="material_request.material_head"
+                           statusbar_visible="first_approved,approved_head,reject"/>
+
+                    <button name="head_approve" string="Approved" type="object" class="oe_highlight"
+                            groups="material_request.material_head"
+                            invisible="status in ['approved_head','reject']"/>
+
+                    <button name="head_reject" string="Reject" type="object" class="oe_highlight"
+                            groups="material_request.material_head"
+                            invisible="status in ['approved_head','reject']"/>
+                </header>
+
+
+                <sheet>
+                      <!--  SMART BUTTON-->
+                    <div class="oe_button_box" name="button_box"  >
+                        <button class="oe_stat_button" type="object" name="get_purchase" icon="fa-star" invisible="purchase_count == 0">
+                            <field string="Purchase" name="purchase_count" widget="statinfo"/>
+                        </button>
+
+                        <button class="oe_stat_button" type="object" name="get_inventory" icon="fa-star" invisible="internal_transfer_count == 0">
+                            <field string="Internal Transfer" name="internal_transfer_count" widget="statinfo"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="reference"/>
+                        </h1>
+                    </div>
+                    <group>
+
+                        <field name="request_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Product">
+                            <field name="product_ids">
+                                <tree editable="bottom">
+                                    <field name="products_id"/>
+
+                                    <field name="purchase"/>
+                                    <field name="from_location" invisible="purchase != 'internal_transfer'"/>
+                                    <field name="to_location" invisible="purchase != 'internal_transfer'"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="employee_tree_view" model="ir.ui.view">
+        <field name="name">employee.tree.view</field>
+        <field name="model">material.request.employee</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="reference"/>
+            </tree>
+        </field>
+    </record>
+<!--    search-->
+      <record id="material_employee_search" model="ir.ui.view">
+        <field name="name">material.employee</field>
+        <field name="model">material.request.employee</field>
+        <field name="arch" type="xml">
+            <search string="search">
+                <filter name="active" string="Rejected" domain="[('active','=',False)]"/>
+            </search>
+        </field>
+    </record>
+<!--    smart button tree-->
+      <record id="employee_tree_view" model="ir.ui.view">
+        <field name="name">employee.tree.view</field>
+        <field name="model">stock.picking</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id" />
+                <field name="location_id" />
+                <field name="location_dest_id" />
+                <field name="picking_type_id" />
+            </tree>
+        </field>
+    </record>
+</odoo>

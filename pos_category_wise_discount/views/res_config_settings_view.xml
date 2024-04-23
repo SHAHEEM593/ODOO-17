@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="category_limit" model="ir.ui.view">
+        <field name="name">Category Limit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='manual_discount']" position="before">
+                <setting id="pos_cat_limit">
+                    <field name="pos_check"/>
+                    <div class="content-group">
+                        <div invisible="not pos_check">
+                            <div class="mt16" invisible="not pos_check">
+                                <label string="Category" for="pos_pricelist_id" class="col-lg-3 o_light_label"/>
+                                <field name="pos_category_limit_cat_ids" widget="many2many_tags"/>
+                            </div>
+                            <div class="mt16" invisible="not pos_check">
+                                <label string="Discount" for="pos_pricelist_id" class="col-lg-3 o_light_label"/>
+                                <field name="pos_discount"/>
+                            </div>
+                            <div class="mt16" invisible="pos_discount != 'percentage'">
+                                <label string="Percentage Limit" for="pos_pricelist_id" class="col-lg-3 o_light_label"/>
+                                <field name="pos_category_limit_disc"/>
+                            </div>
+                            <div class="mt16" invisible="pos_discount != 'amount'">
+                                <label string="Amount Limit" for="pos_pricelist_id" class="col-lg-3 o_light_label"/>
+                                <field name="pos_category_limit_amt"/>
+                            </div>
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
